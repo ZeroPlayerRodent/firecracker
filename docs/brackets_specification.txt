@@ -1,0 +1,138 @@
+== SYNTAX ==
+
+Brackets uses syntax heavily inspired by Common Lisp.
+
+Functions are represented like this: (function-name argument-1 argument-2)
+
+== DATA ==
+
+Byte -> 8-bit integer between 0 and 255.
+EXAMPLE: 25 => 25
+
+Array -> 1-dimensional collection of bytes indexed starting from 0.
+EXAMPLE: (newarray baz 1 2 3 4 5) => [1, 2, 3, 4, 5]
+
+Variable -> Named byte or array accessible anywhere in your code.
+EXAMPLE: (newvar foo 255) => (new variable named "foo" equal to 255)
+
+Routine -> Named block of code that can be executed at any time.
+EXAMPLE: (routine zero-foo (put 0 foo)) => (new routine named "zero-foo" that sets "foo" to 0)
+
+Label -> Named location in the code that can be jumped to at any time.
+EXAMPLE: (label bar) => (new label named "bar")
+
+== FUNCTIONS ==
+
+(RANDOM) -> Return a pseudo-random byte.
+EXAMPLE: (random) => 139
+
+(AND X Y) -> Returns the logical AND of X and Y.
+EXAMPLE: (and 123 21) => 17
+
+(RESETSCORE) -> Set scoreboard 1 to 0.
+EXAMPLE: (resetscore) => (scoreboard 1 is now 000000)
+
+(RESETSCORE2) -> Set scoreboard 2 to 0.
+EXAMPLE: (resetscore2) => (scoreboard 2 is now 000000)
+
+(ADDPOINTS X) -> Add X to scoreboard 1.
+EXAMPLE: (addpoints 100) => (scoreboard 1 is now 100 points higher)
+
+(ADDPOINTS2 X) -> Add X to scoreboard 2.
+EXAMPLE: (addpoints2 100) => (scoreboard 2 is now 100 points higher)
+
+(EXECUTE X) -> Execute routine named X.
+EXAMPLE: (execute zero-foo) => (executes "zero-foo")
+
+(PLAYSOUND1) -> Begin playing sound effect 1.
+EXAMPLE: (playsound1) => (plays sound effect 1)
+
+(PLAYSOUND2) -> Begin playing sound effect 2.
+EXAMPLE: (playsound2) => (plays sound effect 2)
+
+(MUTESOUND1) -> Stop playing sound effect 1.
+EXAMPLE: (mutesound1) => (stops sound effect 1)
+
+(MUTESOUND2) -> Stop playing sound effect 2.
+EXAMPLE: (mutesound2) => (stops sound effect 2)
+
+(HITBOXES X1 Y1 X2 Y2) -> Set hitbox sizes for 2 sprites. The width and height for sprite 1 is equal to X1 and Y1, and the width and height of sprite 2 is X2 and Y2.
+EXAMPLE: (hitboxes 10 10 20 20) => (sets hitboxes to be 10x10 and 20x20)
+
+(COLLISION X Y) -> Returns TRUE if sprites number X and Y collided. Uses hitboxes last defined by (HITBOXES).
+EXAMPLE: (collision 0 1) => (TRUE if sprite 0 and sprite 1 collided)
+
+(LOADSPRITE X Y) -> Loads sprite at index X with bitmap graphics represented by Y.
+EXAMPLE:
+(loadsprite 0
+..xxxxxxxx..
+.x........x.
+x..x....x..x
+x..........x
+x.x......x.x
+x..xxxxxx..x
+.x........x.
+..xxxxxxxx..) => (loads a smiley face bitmap into index 0)
+
+(SETSPRITE X Y) -> Sets sprite X's graphics to bitmap at index Y.
+EXAMPLE: (setsprite 0 0) => (sets sprite 0's graphics to the smiley face)
+
+(ROUTINE X Y) -> Creates routine named X that executes Y.
+EXAMPLE: (routine zero-foo (put 0 foo)) => (new routine named "zero-foo" that sets "foo" to 0)
+
+(BREAK) -> Exit loop.
+EXAMPLE: (loop (break)) => (exits loop)
+
+(DRAWSCREEN) -> Draws a single frame to the screen.
+EXAMPLE: (drawscreen) => (draws the screen)
+
+(PLOT Y X Z) -> Plots character Z at y location Y and x location X.
+EXAMPLE: (plot 5 5 160) => (plots character 160 at location 5,5)
+
+(PLOTCOLOR Y X Z) -> Sets character at y location Y and x location X to color Z.
+EXAMPLE: (plot 5 5 2) => (sets character at 5,5 to be red)
+
+(LOOP X) -> Infinitely executes X.
+EXAMPLE: (loop (put (+ foo 1) foo)) => (infinitely adds 1 to "foo")
+
+(WHEN X Y) -> If X is TRUE, execute Y.
+EXAMPLE: (when (equal 1 1) (resetscore)) => (resets scoreboard 1)
+
+(EQUAL X Y) -> Returns TRUE if X and Y are equal.
+EXAMPLE: (equal 1 1) => TRUE
+
+(> X Y) -> Returns TRUE if X is bigger than Y.
+EXAMPLE: (> 10 5) => TRUE
+
+(< X Y) -> Returns TRUE is X is smaller than Y.
+EXAMPLE: (< 10 5) => FALSE
+
+(JOYX) -> Returns TRUE if X is pressed on joystick 1. X may be UP, DOWN, LEFT, RIGHT, or FIRE.
+EXAMPLE: (loop (when (joyup) (resetscore)) => (waits until up is pressed, and resets scoreboard 1 when it is)
+
+(JOYX2) -> Returns TRUE if X is pressed on joystick 2. X may be UP, DOWN, LEFT, RIGHT, or FIRE.
+EXAMPLE: (loop (when (joyup2) (resetscore)) => (waits until up is pressed, and resets scoreboard 1 when it is)
+
+(GOTO X) -> Jump to label named X.
+EXAMPLE: (goto bar) => (jumps to "bar")
+
+(LABEL X) -> Create new label named X.
+EXAMPLE: (label bar) => (creates new label "bar")
+
+(PUT X Y) -> Sets variable Y to X.
+EXAMPLE: (put 5 foo) => (sets "foo" to 5)
+
+(INDEX X Y) -> Points to index X of array Y.
+EXAMPLE: (put 5 (index 0 baz)) => (sets index 0 of "baz" to 5)
+
+(NEWARRAY X Y &REST) -> Creates new variable array named X containing Y and &REST.
+EXAMPLE: (newarray baz 1 2 3 4 5) => [1, 2, 3, 4, 5]
+
+(NEWVAR X Y) -> Creates new variable byte named X equal to Y.
+EXAMPLE: (newvar foo 25) => 25
+
+(+ X Y) -> Returns X plus Y.
+EXAMPLE: (+ 15 10) => 25
+
+(- X Y) -> Returns X minus Y.
+EXAMPLE: (- 15 10) => 5

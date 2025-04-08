@@ -4,15 +4,13 @@ Firecracker is a game engine for creating arcade-style games on the Commodore 64
 
 It comes with many tools to help you start making games for the legendary computer!
 
-(Firecracker is currently an experimental piece of software, only use it if you absolutely know what you're doing)
-
 ## Features
 
-- A fully-fledged programming language
+- A full programming language
 - Inline sprite editing
 - Software sprite collision detection
 - Built-in 6 digit scoreboards
-- Functions for plotting backgrounds
+- Compiles to human-readable assembly
 
 ## Games made with Firecracker
 
@@ -30,16 +28,29 @@ It comes with many tools to help you start making games for the legendary comput
 
 1. Clone the repo to your machine.
 2. `cd` into to the `src` directory.
-3. Load `build.lisp` in SBCL.
+3. Load `build.lisp` in [SBCL](https://www.sbcl.org/).
 
 ### Running Firecracker
 
 1. Put your game's source code in the same directory as Firecracker
 2. Type `./firecracker <filename.lisp> <filename.asm>`
-3. Assemble the output file in dasm.
+3. Assemble the output file in [dasm](https://dasm-assembler.github.io/).
 
 ### Running a Firecracker game
 
 1. Create a C64 disk or tape image containing the game binary.
 2. Load the image on a C64 emulator.
 3. Type `SYS 32768`.
+
+## To-do List
+
+Firecracker is an experimental piece of software, there are still features that need to be added.
+
+Here is the list of things that need to be improved:
+
+- Add compiler error messages
+- Add better sound effect / music functionality
+- Improve performance of plotting functions
+- Update `LABEL`, `ROUTINE`, and `GOTO` functions to avoid duplicate names
+- Clean up code for better readability
+- Add comments to source code

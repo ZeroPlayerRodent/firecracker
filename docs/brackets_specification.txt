@@ -4,6 +4,9 @@ Brackets uses syntax heavily inspired by Common Lisp.
 
 Functions are represented like this: (function-name argument-1 argument-2)
 
+Code comments are put between '|' symbols.
+EXAMPLE: | This is a code comment! |
+
 == DATA ==
 
 Byte -> 8-bit integer between 0 and 255.
@@ -16,10 +19,27 @@ Variable -> Named byte or array accessible anywhere in your code.
 EXAMPLE: (newvar foo 255) => (new variable named "foo" equal to 255)
 
 Routine -> Named block of code that can be executed at any time.
-EXAMPLE: (routine zero-foo (put 0 foo)) => (new routine named "zero-foo" that sets "foo" to 0)
+EXAMPLE: (routine zero_foo (put 0 foo)) => (new routine named "zero_foo" that sets "foo" to 0)
 
 Label -> Named location in the code that can be jumped to at any time.
 EXAMPLE: (label bar) => (new label named "bar")
+
+== VARIABLES ==
+
+BORDERCOLOR -> Controls the border colour.
+EXAMPLE: (put 2 bordercolor) => (sets border colour to red)
+
+BACKGROUNDCOLOR -> Controls the background colour.
+EXAMPLE: (put 2 backgroundcolor) => (sets background colour to red)
+
+PLAYER(0-8)X -> Controls the X position of sprite 0-8.
+EXAMPLE: (put (+ player0x 5) player0x) => (moves sprite 0 to the right by 5 pixels)
+
+PLAYER(0-8)Y -> Controls the Y position of sprite 0-8.
+EXAMPLE: (put (- player1y 5) player1y) => (moves sprite 1 up by 5 pixels)
+
+PLAYER(0-8)COLOR -> Controls the colour of sprite 0-8.
+EXAMPLE (put 2 player2color) => (sets sprite 2 to red)
 
 == FUNCTIONS ==
 
@@ -42,7 +62,7 @@ EXAMPLE: (addpoints 100) => (scoreboard 1 is now 100 points higher)
 EXAMPLE: (addpoints2 100) => (scoreboard 2 is now 100 points higher)
 
 (EXECUTE X) -> Execute routine named X.
-EXAMPLE: (execute zero-foo) => (executes "zero-foo")
+EXAMPLE: (execute zero_foo) => (executes "zero_foo")
 
 (PLAYSOUND1) -> Begin playing sound effect 1.
 EXAMPLE: (playsound1) => (plays sound effect 1)
@@ -78,7 +98,7 @@ x..xxxxxx..x
 EXAMPLE: (setsprite 0 0) => (sets sprite 0's graphics to the smiley face)
 
 (ROUTINE X Y) -> Creates routine named X that executes Y.
-EXAMPLE: (routine zero-foo (put 0 foo)) => (new routine named "zero-foo" that sets "foo" to 0)
+EXAMPLE: (routine zero_foo (put 0 foo)) => (new routine named "zero_foo" that sets "foo" to 0)
 
 (BREAK) -> Exit loop.
 EXAMPLE: (loop (break)) => (exits loop)

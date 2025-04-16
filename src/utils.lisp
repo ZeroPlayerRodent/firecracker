@@ -125,6 +125,10 @@
       (setf return (format nil "$~x" return))
     )
     (when (parse-integer foo :junk-allowed t)
+      (when (or (> (parse-integer foo :junk-allowed t) 255) (< (parse-integer foo :junk-allowed t) 0))
+        (format t (concatenate 'string "ERROR: " foo " IS NOT AN 8-BIT INTEGER.~%"))
+        (exit)
+      )
       (setf return (concatenate 'string "#" foo))
     )
     return

@@ -6,11 +6,11 @@ It comes with many tools to help you start making games for the legendary comput
 
 ## Features
 
-- A full programming language
+- A scripting language with Lisp-like syntax
 - Inline sprite editing
 - Software sprite collision detection
 - Built-in 6 digit scoreboards
-- Compiles to human-readable assembly
+- Compilation to human-readable assembly
 
 ## Games made with Firecracker
 
@@ -50,7 +50,6 @@ Here is the list of things that need to be improved:
 
 - Add compiler error messages
 - Add better sound effect / music functionality
-- Improve performance of plotting functions
 - Update `LABEL`, `ROUTINE`, and `GOTO` functions to avoid duplicate names
 - Clean up code for better readability
 - Add comments to source code

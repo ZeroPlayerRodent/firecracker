@@ -318,6 +318,38 @@ NoCollision
 
 ")
 
+(format o "
+ jmp NoCharPlot
+CharPlot
+ ldx $00FD
+ ldy $00FE
+ dex
+ lda PlotTable,x
+ sta $00FB
+ lda PlotTable2,x
+ ora #$04
+ sta $00FC
+ lda $00FF
+ sta ($00FB),y
+ rts
+NoCharPlot
+
+ jmp NoColorPlot
+ColorPlot
+ ldx $00FD
+ ldy $00FE
+ dex
+ lda PlotTable,x
+ sta $00FB
+ lda PlotTable2,x
+ ora #$D8
+ sta $00FC
+ lda $00FF
+ sta ($00FB),y
+ rts
+NoColorPlot
+")
+
 (loop
   (when (>= i (length code-string))(return))
   (compile-fc code-string i)
@@ -335,6 +367,20 @@ Wait3
  lda $d011
  bpl Wait2
  rts
+
+PlotTable
+ byte <40,<80,<120,<160,<200
+ byte <240,<280,<320,<360,<400
+ byte <440,<480,<520,<560,<600
+ byte <640,<680,<720,<760,<800
+ byte <840,<880,<920,<960,<1000
+
+PlotTable2
+ byte >40,>80,>120,>160,>200
+ byte >240,>280,>320,>360,>400
+ byte >440,>480,>520,>560,>600
+ byte >640,>680,>720,>760,>800
+ byte >840,>880,>920,>960,>1000
 
 ")
  (close o)

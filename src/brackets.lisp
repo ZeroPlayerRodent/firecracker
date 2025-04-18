@@ -323,7 +323,10 @@ NoCollision
 CharPlot
  ldx $00FD
  ldy $00FE
+ cpx #0
+ beq NoDex1
  dex
+NoDex1
  lda PlotTable,x
  sta $00FB
  lda PlotTable2,x
@@ -338,7 +341,10 @@ NoCharPlot
 ColorPlot
  ldx $00FD
  ldy $00FE
+ cpx #0
+ beq NoDex2
  dex
+NoDex2
  lda PlotTable,x
  sta $00FB
  lda PlotTable2,x

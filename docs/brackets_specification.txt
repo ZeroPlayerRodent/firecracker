@@ -32,6 +32,9 @@ EXAMPLE: (put 2 bordercolor) => (sets border colour to red)
 BACKGROUNDCOLOR -> Controls the background colour.
 EXAMPLE: (put 2 backgroundcolor) => (sets background colour to red)
 
+BGCOLLISION -> Tracks sprite collisions with background characters.
+EXAMPLE: (equal (and bgcollision 1) 1) => (returns true if sprite 0 is colliding with the background)
+
 PLAYER(0-8)X -> Controls the X position of sprite 0-8.
 EXAMPLE: (put (+ player0x 5) player0x) => (moves sprite 0 to the right by 5 pixels)
 

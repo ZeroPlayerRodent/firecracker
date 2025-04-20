@@ -1,5 +1,5 @@
 (defvar var-address #xC00C)
-(defvar var-list (list "BORDERCOLOR" #xD020 "BACKGROUNDCOLOR" #xD021))
+(defvar var-list (list "BORDERCOLOR" #xD020 "BACKGROUNDCOLOR" #xD021 "BGCOLLISION" #xD01F))
 
 (defvar xy-hex #xD000)
 (defvar hex-dex 0)
@@ -57,18 +57,6 @@
 
      (setf foundfunc nil)
       (when (equal "(" (elt foo i))
-        (incf i)
-        (setf foundfunc t)
-      )
-
-      (when (equal "BGCOLLISION" (elt foo i))
-        (setf foundfunc t)
-        (let ((bitshit (list 1 2 4 8 16 32 64 128)))
-          (incf i)
-          (format o " lda #~d~%" (elt bitshit (parse-integer (elt foo i))))
-          (format o " bit $D01F~%")
-          (format o " bne ")
-        )
         (incf i)
         (setf foundfunc t)
       )

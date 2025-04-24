@@ -1,6 +1,11 @@
 (defvar var-address #xC00C)
 (defvar var-list (list "BORDERCOLOR" #xD020 "BACKGROUNDCOLOR" #xD021 "BGCOLLISION" #xD01F))
 
+(defvar sound-list (list "SOUND1-FREQ-LO" #xD400 "SOUND1-FREQ-HI" #xD401 "SOUND1-PULSE-LO" #xD402 "SOUND1-PULSE-HI" #xD403
+                         "SOUND2-FREQ-LO" #xD407 "SOUND2-FREQ-HI" #xD408 "SOUND2-PULSE-LO" #xD409 "SOUND2-PULSE-HI" #xD40A))
+
+(setf var-list (concatenate 'list var-list sound-list))
+
 (defvar xy-hex #xD000)
 (defvar hex-dex 0)
 (defvar var-dex 0)

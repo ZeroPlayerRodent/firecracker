@@ -49,7 +49,6 @@ Firecracker is an experimental piece of software, there are still features that 
 Here is the list of things that need to be improved:
 
 - Add compiler error messages
-- Add better sound effect / music functionality
 - Update `LABEL`, `ROUTINE`, and `GOTO` functions to avoid duplicate names
 - Clean up code for better readability
 - Add comments to source code

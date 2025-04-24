@@ -26,6 +26,22 @@ EXAMPLE: (label bar) => (new label named "bar")
 
 == VARIABLES ==
 
+SOUND1-FREQ-LO -> Sound 1 frequency low byte 
+
+SOUND1-FREQ-HI -> Sound 1 frequency high byte
+
+SOUND1-PULSE-LO -> Sound 1 pulse low byte 
+
+SOUND1-PULSE-HI -> Sound 1 pulse high byte
+
+SOUND2-FREQ-LO -> Sound 2 frequency low byte 
+
+SOUND2-FREQ-HI -> Sound 2 frequency high byte
+
+SOUND2-PULSE-LO -> Sound 2 pulse low byte 
+
+SOUND2-PULSE-HI -> Sound 2 pulse high byte 
+
 BORDERCOLOR -> Controls the border colour.
 EXAMPLE: (put 2 bordercolor) => (sets border colour to red)
 
@@ -35,13 +51,13 @@ EXAMPLE: (put 2 backgroundcolor) => (sets background colour to red)
 BGCOLLISION -> Tracks sprite collisions with background characters.
 EXAMPLE: (equal (and bgcollision 1) 1) => (returns true if sprite 0 is colliding with the background)
 
-PLAYER(0-8)X -> Controls the X position of sprite 0-8.
+PLAYER(0-7)X -> Controls the X position of sprite 0-7.
 EXAMPLE: (put (+ player0x 5) player0x) => (moves sprite 0 to the right by 5 pixels)
 
-PLAYER(0-8)Y -> Controls the Y position of sprite 0-8.
+PLAYER(0-7)Y -> Controls the Y position of sprite 0-7.
 EXAMPLE: (put (- player1y 5) player1y) => (moves sprite 1 up by 5 pixels)
 
-PLAYER(0-8)COLOR -> Controls the colour of sprite 0-8.
+PLAYER(0-7)COLOR -> Controls the colour of sprite 0-7.
 EXAMPLE (put 2 player2color) => (sets sprite 2 to red)
 
 == FUNCTIONS ==

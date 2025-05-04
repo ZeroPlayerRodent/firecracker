@@ -20,8 +20,7 @@
 (setf o (open bar :direction :output :if-exists :supersede :if-does-not-exist :create))
 (format o "
  processor 6502
- org  $7ffe
- word $8000
+ org $8000
  sei
  stx $d016
  jsr $fda3

@@ -74,6 +74,12 @@ EXAMPLE: (resetscore) => (scoreboard 1 is now 000000)
 (RESETSCORE2) -> Set scoreboard 2 to 0.
 EXAMPLE: (resetscore2) => (scoreboard 2 is now 000000)
 
+(CUSTOMCHARS) -> Use custom character set
+EXAMPLE: (customchars) => (character set is now user-defined)
+
+(DEFAULTCHARS) -> Use default character set
+EXAMPLE: (defaultchars) => (character set is now default PETSCII)
+
 (ADDPOINTS X) -> Add X to scoreboard 1.
 EXAMPLE: (addpoints 100) => (scoreboard 1 is now 100 points higher)
 
@@ -100,6 +106,18 @@ EXAMPLE: (hitboxes 10 10 20 20) => (sets hitboxes to be 10x10 and 20x20)
 
 (COLLISION X Y) -> Returns TRUE if sprites number X and Y collided. Uses hitboxes last defined by (HITBOXES).
 EXAMPLE: (collision 0 1) => (TRUE if sprite 0 and sprite 1 collided)
+
+(LOADCHAR X Y) -> Replaces graphics for character X with bitmap represented by Y.
+EXAMPLE:
+(loadchar 48
+...xx...
+..x..x..
+...xx...
+xxxxxxxx
+...xx...
+...xx...
+..x..x..
+..x..x..) => (replaces character 48 with a stickman bitmap)
 
 (LOADSPRITE X Y) -> Loads sprite at index X with bitmap graphics represented by Y.
 EXAMPLE:
